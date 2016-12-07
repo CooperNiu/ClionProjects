@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Cooper/ClionProjects/ch1Textbook/Bo1-1.c
+c1.h
+C:/Users/Cooper/ClionProjects/ch1Textbook/c1.h
+c1-1.h
+C:/Users/Cooper/ClionProjects/ch1Textbook/c1-1.h
+
+C:/Users/Cooper/ClionProjects/ch1Textbook/c1-1.h
+
+C:/Users/Cooper/ClionProjects/ch1Textbook/c1.h
+string.h
+-
+ctype.h
+-
+malloc.h
+-
+limits.h
+-
+stdio.h
+-
+stdlib.h
+-
+io.h
+-
+math.h
+-
+process.h
+-
+
+C:/Users/Cooper/ClionProjects/ch1Textbook/main.c
+stdio.h
+-
+

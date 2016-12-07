@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Cooper/ClionProjects/DataStructure/HuffmanTree.cpp
+HuffmanTree.h
+C:/Users/Cooper/ClionProjects/DataStructure/HuffmanTree.h
+
+C:/Users/Cooper/ClionProjects/DataStructure/HuffmanTree.h
+string.h
+-
+ctype.h
+-
+malloc.h
+-
+limits.h
+-
+stdio.h
+-
+stdlib.h
+-
+
+C:/Users/Cooper/ClionProjects/DataStructure/main.cpp
+HuffmanTree.h
+C:/Users/Cooper/ClionProjects/DataStructure/HuffmanTree.h
+

@@ -1,0 +1,15 @@
+*.xml
+BiTNode/cmake-build-debug/CMakeFiles/3.6.2/CMakeDetermineCompilerABI_CXX.bin
+*.bin
+BiTNode/cmake-build-debug/CMakeFiles/3.6.2/CompilerIdC/a.exe
+*.exe
+*.make
+BiTNode/cmake-build-debug/CMakeFiles/BiTNode.dir/objects1.rsp
+*.rsp
+BiTNode/cmake-build-debug/CMakeFiles/clion-log.txt
+*.txt
+*.cmake
+*.log
+*.iml
+*.check_cache
+*.marks
