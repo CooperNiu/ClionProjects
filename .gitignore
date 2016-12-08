@@ -13,3 +13,9 @@ BiTNode/cmake-build-debug/CMakeFiles/clion-log.txt
 *.iml
 *.check_cache
 *.marks
+*.a
+*.includecache
+*.internal
+*.cbp
+*.cxx
+*.obj
