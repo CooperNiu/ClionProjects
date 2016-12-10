@@ -19,6 +19,6 @@
 #define OVERFLOW -2
 
 typedef int Status;
-typedef int ElemType;
+typedef double ElemType;
 
 #endif //STACK_CONSTANT_H

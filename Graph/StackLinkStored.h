@@ -1,7 +1,5 @@
-//
+// 更新2016-12-10 10:21:01
 // Created by Cooper on 07/12/2016.
-//
-
 #ifndef GRAPH_STACKLINKSTORED_H
 #define GRAPH_STACKLINKSTORED_H
 /* c3-2.h 单链队列－－队列的链式存储结构 */
