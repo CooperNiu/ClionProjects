@@ -427,16 +427,18 @@ Status DeleteArc(MGraph *G,VertexType v,VertexType w)
 }
 
 Boolean visited[MAX_VERTEX_NUM]; /* 访问标志数组(全局量) */
-Status (*VisitFunc)(VertexType); /* 函数变量 */
-Status Visit(VertexType i)
+Status (*VisitFunc)(VertexType v); /* 函数变量 */
+Status Visit(VertexType v)
 {
-    printf("%s ",i);
-    return OK;
+    printf("%s", v);
+    return 0;
 }
+
 void DFS(MGraph G,int v)
 { /* 从第v个顶点出发递归地深度优先遍历图G。算法7.5 */
     VertexType w1,v1;
     int w;
+    VisitFunc= Visit;
     visited[v]=TRUE; /* 设置访问标志为TRUE(已访问) */
     VisitFunc(G.vexs[v]); /* 访问第v个顶点 */
     strcpy(v1,*GetVex(G,v));
