@@ -6,7 +6,7 @@
 
 /* ListFunc.cpp 顺序队列(非循环,存储结构由c3-3.h定义)的基本操作(9个) */
 Status InitQueue(SqQueue *Q) { /* 构造一个空队列Q */
-    (*Q).base=(QElemType *)malloc(MAXQSIZE*sizeof(QElemType));
+    (*Q).base=(ElemType *)malloc(MAXQSIZE*sizeof(ElemType));
     if(!(*Q).base) /* 存储分配失败 */
         exit(OVERFLOW);
     (*Q).front=(*Q).rear=0;
@@ -37,17 +37,17 @@ int QueueLength(SqQueue Q) { /* 返回Q的元素个数,即队列的长度 */
     return(Q.rear-Q.front);
 }
 
-Status GetHead(SqQueue Q, QElemType *e) { /* 若队列不空,则用e返回Q的队头元素,并返回OK,否则返回ERROR */
+Status GetHead(SqQueue Q, ElemType *e) { /* 若队列不空,则用e返回Q的队头元素,并返回OK,否则返回ERROR */
     if(Q.front==Q.rear) /* 队列空 */
         return ERROR;
     *e=*(Q.base+Q.front);
     return OK;
 }
 
-Status EnQueue(SqQueue *Q, QElemType e) { /* 插入元素e为Q的新的队尾元素 */
+Status EnQueue(SqQueue *Q, ElemType e) { /* 插入元素e为Q的新的队尾元素 */
     if((*Q).rear>=MAXQSIZE)
     { /* 队列满，增加1个存储单元 */
-        (*Q).base=(QElemType *)realloc((*Q).base,((*Q).rear+1)*sizeof(QElemType));
+        (*Q).base=(ElemType *)realloc((*Q).base,((*Q).rear+1)*sizeof(ElemType));
         if(!(*Q).base) /* 增加单元失败 */
             return ERROR;
     }
@@ -56,7 +56,7 @@ Status EnQueue(SqQueue *Q, QElemType e) { /* 插入元素e为Q的新的队尾元
     return OK;
 }
 
-Status QueueTraverse(SqQueue Q, void (*vi)(QElemType)) { /* 从队头到队尾依次对队列Q中每个元素调用函数vi()。一旦vi失败,则操作失败 */
+Status QueueTraverse(SqQueue Q, void (*vi)(ElemType)) { /* 从队头到队尾依次对队列Q中每个元素调用函数vi()。一旦vi失败,则操作失败 */
     int i;
     i=Q.front;
     while(i!=Q.rear)
@@ -68,7 +68,7 @@ Status QueueTraverse(SqQueue Q, void (*vi)(QElemType)) { /* 从队头到队尾�
     return OK;
 }
 
-Status DeQueue(SqQueue *Q, QElemType *e) { /* 若队列不空,则删除Q的队头元素,用e返回其值,并返回OK,否则返回ERROR */
+Status DeQueue(SqQueue *Q, ElemType *e) { /* 若队列不空,则删除Q的队头元素,用e返回其值,并返回OK,否则返回ERROR */
     if((*Q).front==(*Q).rear) /* 队列空 */
         return ERROR;
     *e=(*Q).base[(*Q).front];

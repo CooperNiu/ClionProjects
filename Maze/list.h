@@ -4,12 +4,12 @@
 
 #ifndef MAZE_LIST_H
 #define MAZE_LIST_H
-/* list.h é˜Ÿåˆ—çš„é¡ºåºå­˜å‚¨ç»“æ„(å¯ç”¨äºå¾ªç¯é˜Ÿåˆ—å’Œéå¾ªç¯é˜Ÿåˆ—) */
-#define MAXQSIZE 5 /* æœ€å¤§é˜Ÿåˆ—é•¿åº¦(å¯¹äºå¾ªç¯é˜Ÿåˆ—ï¼Œæœ€å¤§é˜Ÿåˆ—é•¿åº¦è¦å‡1) */
+/* list.h ¶ÓÁĞµÄË³Ğò´æ´¢½á¹¹(¿ÉÓÃÓÚÑ­»·¶ÓÁĞºÍ·ÇÑ­»·¶ÓÁĞ) */
+#define MAXQSIZE 5 /* ×î´ó¶ÓÁĞ³¤¶È(¶ÔÓÚÑ­»·¶ÓÁĞ£¬×î´ó¶ÓÁĞ³¤¶ÈÒª¼õ1) */
 typedef struct SqQueue{
-    QElemType *base; /* åˆå§‹åŒ–çš„åŠ¨æ€åˆ†é…å­˜å‚¨ç©ºé—´ */
-    int front; /* å¤´æŒ‡é’ˆ,è‹¥é˜Ÿåˆ—ä¸ç©º,æŒ‡å‘é˜Ÿåˆ—å¤´å…ƒç´  */
-    int rear; /* å°¾æŒ‡é’ˆ,è‹¥é˜Ÿåˆ—ä¸ç©º,æŒ‡å‘é˜Ÿåˆ—å°¾å…ƒç´ çš„ä¸‹ä¸€ä¸ªä½ç½® */
+    ElemType *base; /* ³õÊ¼»¯µÄ¶¯Ì¬·ÖÅä´æ´¢¿Õ¼ä */
+    int front; /* Í·Ö¸Õë,Èô¶ÓÁĞ²»¿Õ,Ö¸Ïò¶ÓÁĞÍ·ÔªËØ */
+    int rear; /* Î²Ö¸Õë,Èô¶ÓÁĞ²»¿Õ,Ö¸Ïò¶ÓÁĞÎ²ÔªËØµÄÏÂÒ»¸öÎ»ÖÃ */
 }SqQueue;
 
 Status InitQueue(SqQueue *Q);
@@ -22,12 +22,12 @@ Status QueueEmpty(SqQueue Q);
 
 int QueueLength(SqQueue Q);
 
-Status GetHead(SqQueue Q,QElemType *e);
+Status GetHead(SqQueue Q,ElemType *e);
 
-Status EnQueue(SqQueue *Q,QElemType e);
+Status EnQueue(SqQueue *Q,ElemType e);
 
-Status DeQueue(SqQueue *Q,QElemType *e);
+Status DeQueue(SqQueue *Q,ElemType *e);
 
-Status QueueTraverse(SqQueue Q,void(*vi)(QElemType));
+Status QueueTraverse(SqQueue Q,void(*vi)(ElemType));
 
 #endif //MAZE_LIST_H

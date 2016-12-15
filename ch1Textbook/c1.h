@@ -2,10 +2,6 @@
 //// Created by Cooper on 29/09/2016.
 ////
 //
-//#ifndef CH1TEXTBOOK_C1_H
-//#define CH1TEXTBOOK_C1_H
-//
-//#endif //CH1TEXTBOOK_C1_H
 /* c1.h (程序名) */
 #include<string.h>
 #include<ctype.h>

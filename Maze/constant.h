@@ -1,4 +1,4 @@
-/* constant.h (ç¨‹åºå) */
+/* constant.h (³ÌĞòÃû) */
 //
 // Created by Cooper on 28/10/2016.
 //
@@ -8,28 +8,29 @@
 
 #include<string.h>
 #include<ctype.h>
-#include<malloc.h> /* malloc()ç­‰ */
-#include<limits.h> /* INT_MAXç­‰ */
-#include<stdio.h> /* EOF(=^Zæˆ–F6),NULL */
+#include<malloc.h> /* malloc()µÈ */
+#include<limits.h> /* INT_MAXµÈ */
+#include<stdio.h> /* EOF(=^Z»òF6),NULL */
 #include<stdlib.h> /* atoi() */
 #include<io.h> /* eof() */
 #include<math.h> /* floor(),ceil(),abs() */
 #include<process.h> /* exit() */
-/* å‡½æ•°ç»“æœçŠ¶æ€ä»£ç  */
+/* º¯Êı½á¹û×´Ì¬´úÂë */
 #define TRUE 1
 #define FALSE 0
 #define OK 1
 #define ERROR 0
 #define OVERFLOW -2
 #define INFEASIBLE -1
-/* #define OVERFLOW -2 å› ä¸ºåœ¨math.hä¸­å·²å®šä¹‰OVERFLOWçš„å€¼ä¸º3,æ•…å»æ‰æ­¤è¡Œ */
-typedef int Status; /* Statusæ˜¯å‡½æ•°çš„ç±»å‹,å…¶å€¼æ˜¯å‡½æ•°ç»“æœçŠ¶æ€ä»£ç ï¼Œå¦‚OKç­‰ */
-typedef int Boolean; /* Booleanæ˜¯å¸ƒå°”ç±»å‹,å…¶å€¼æ˜¯TRUEæˆ–FALSE */
+/* #define OVERFLOW -2 ÒòÎªÔÚmath.hÖĞÒÑ¶¨ÒåOVERFLOWµÄÖµÎª3,¹ÊÈ¥µô´ËĞĞ */
+typedef int Status; /* StatusÊÇº¯ÊıµÄÀàĞÍ,ÆäÖµÊÇº¯Êı½á¹û×´Ì¬´úÂë£¬ÈçOKµÈ */
+typedef int Boolean; /* BooleanÊÇ²¼¶ûÀàĞÍ,ÆäÖµÊÇTRUE»òFALSE */
 
 //typedef int QElemType, SElemType;
-typedef struct /* å®šä¹‰é˜Ÿåˆ—å…ƒç´ å’Œæ ˆå…ƒç´ ä¸ºåŒç±»å‹çš„ç»“æ„ä½“ */
+typedef struct /* ¶¨Òå¶ÓÁĞÔªËØºÍÕ»ÔªËØÎªÍ¬ÀàĞÍµÄ½á¹¹Ìå */
 {
-    int x,y; /* å½“å‰ç‚¹çš„è¡Œå€¼ï¼Œåˆ—å€¼ */
-    int pre; /* å‰ä¸€ç‚¹åœ¨é˜Ÿåˆ—ä¸­çš„åºå· */
-}QElemType,SElemType; /* å®šä¹‰æ ˆå…ƒç´ å’Œé˜Ÿåˆ—å…ƒç´  */
+    int x,y; /* µ±Ç°µãµÄĞĞÖµ£¬ÁĞÖµ */
+    int pre; /* Ç°Ò»µãÔÚ¶ÓÁĞÖĞµÄĞòºÅ */
+}ElemType;
+//        QElemType,SElemType; /* ¶¨ÒåÕ»ÔªËØºÍ¶ÓÁĞÔªËØ */
 #endif //MAZE_CONSTANT_H

@@ -1,26 +1,49 @@
-/* main.cpp åˆ©ç”¨éžå¾ªçŽ¯é¡ºåºé˜Ÿåˆ—é‡‡ç”¨å¹¿åº¦æœç´¢æ³•æ±‚è§£è¿·å®«é—®é¢˜(ä¸€æ¡è·¯å¾„)
- * å€Ÿé‰´: å¯¹äºŽç§»åŠ¨æ–¹å‘ä¸¤ç§æƒ…å†µçš„ç±»åž‹å®šä¹‰åˆ†ç±»ä½¿ç”¨#defineã€#ifå’Œ#endif
+/*main.cpp ÀûÓÃ·ÇÑ­»·Ë³Ðò¶ÓÁÐ²ÉÓÃ¹ã¶ÈËÑË÷·¨Çó½âÃÔ¹¬ÎÊÌâ(Ò»ÌõÂ·¾¶)
+ * ½è¼ø: ¶ÔÓÚÒÆ¶¯·½ÏòÁ½ÖÖÇé¿öµÄÀàÐÍ¶¨Òå·ÖÀàÊ¹ÓÃ#define¡¢#ifºÍ#endif
  * */
 /*
- * 2016å¹´10æœˆ29æ—¥10:19:50äºŽå›¾ä¹¦é¦†
- * 1. åŸºæœ¬åŠŸèƒ½å®žçŽ°, æ­£åœ¨é˜…è¯»ç¨‹åº
- * 2. å‘çŽ°Clionè¿˜æœ‰Presentation Mode, åªå‰©ä¸‹æˆ‘å’Œä»£ç ç‹¬å¤„äº†, åŽŸæ¥ä¸€ä¸ªè½¯ä»¶å¯ä»¥å¼€å‘æˆ
- *    å¦‚æ­¤äººæ€§åŒ–çš„å¢ƒç•Œ! æ”¶è´¹ä¹Ÿæ˜¯ç†æ‰€åº”å½“çš„å‘¢! æˆ‘æ„¿æ„ä¸ºè¿™æ ·æé«˜ç¨‹åºå‘˜æ•ˆçŽ‡çš„è½¯ä»¶ä»˜è´¹!
- * 3. Distraction Free Modeä¹Ÿå¾ˆå¥½, ç‚¹è¿›åŽ»åŽä»£ç å­—ä½“å…¨éƒ¨å˜å¤§, å…¶ä»–çš„ç•Œé¢å…¨éƒ¨éšè—
- * 4. å­¦ç”Ÿæ—¶ä»£çš„ä¼˜æƒ çœŸçš„æ˜¯å¥½å¤šå‘¢! Clionè¿™ä¹ˆä¼˜ç§€çš„è½¯ä»¶ä»¥åŠè¯¥å…¬å¸å¼€å‘çš„å…¶ä»–IDEè½¯ä»¶éƒ½æ˜¯å¯¹å­¦ç”Ÿå…è´¹çš„, è‡ªå·±å¯ä»¥åœ¨å­¦ç”Ÿæ—¶ä»£
- *    äº«å—è¿™äº›å¾…é‡, ç­‰è‡ªå·±æ¯•ä¸šäº†ä¹Ÿå°±è¦ä¸ºç¤¾ä¼šåšè´¡çŒ®äº†, å¯ä»¥äº§ç”ŸGDPå•¦!
- * 5. åšè‡ªå·±, ä¸è¦å’Œåˆ«äººæ¯”è¾ƒ, è‡ªå·±æœ‰ä¼˜åŠ¿, ä¹Ÿæœ‰ä¸è¶³, åšè‡ªå·±æƒ³è¦æˆä¸ºçš„äºº, å®Œå–„è‡ªå·±è®¤ä¸ºé‡è¦çš„!
- * 6. äººä¸Žäººæ˜¯ä¸åŒçš„, ä¸å…·æœ‰å¯æ¯”æ€§, è¦æ˜¯æƒ³æ¯”è¾ƒ, éœ€è¦é™å®šå¾ˆå¤šå‰æ, è€Œé‚£äº›å°±åˆä¼šä¸å…¨é¢, æ¯•ç«Ÿäººéžåœ£è´¤å­°èƒ½æ— è¿‡.
+ * 2016Äê10ÔÂ29ÈÕ10:19:50ÓÚÍ¼Êé¹Ý
+ * 1. »ù±¾¹¦ÄÜÊµÏÖ, ÕýÔÚÔÄ¶Á³ÌÐò
+ * 2. ·¢ÏÖClion»¹ÓÐPresentation Mode, Ö»Ê£ÏÂÎÒºÍ´úÂë¶À´¦ÁË, Ô­À´Ò»¸öÈí¼þ¿ÉÒÔ¿ª·¢³É
+ *    Èç´ËÈËÐÔ»¯µÄ¾³½ç! ÊÕ·ÑÒ²ÊÇÀíËùÓ¦µ±µÄÄØ! ÎÒÔ¸ÒâÎªÕâÑùÌá¸ß³ÌÐòÔ±Ð§ÂÊµÄÈí¼þ¸¶·Ñ!
+ * 3. Distraction Free ModeÒ²ºÜºÃ, µã½øÈ¥ºó´úÂë×ÖÌåÈ«²¿±ä´ó, ÆäËûµÄ½çÃæÈ«²¿Òþ²Ø
+ * 4. Ñ§ÉúÊ±´úµÄÓÅ»ÝÕæµÄÊÇºÃ¶àÄØ! ClionÕâÃ´ÓÅÐãµÄÈí¼þÒÔ¼°¸Ã¹«Ë¾¿ª·¢µÄÆäËûIDEÈí¼þ¶¼ÊÇ¶ÔÑ§ÉúÃâ·ÑµÄ, ×Ô¼º¿ÉÒÔÔÚÑ§ÉúÊ±´ú
+ *    ÏíÊÜÕâÐ©´ýÓö, µÈ×Ô¼º±ÏÒµÁËÒ²¾ÍÒªÎªÉç»á×ö¹±Ï×ÁË, ¿ÉÒÔ²úÉúGDPÀ²!
+ * 5. ×ö×Ô¼º, ²»ÒªºÍ±ðÈË±È½Ï, ×Ô¼ºÓÐÓÅÊÆ, Ò²ÓÐ²»×ã, ×ö×Ô¼ºÏëÒª³ÉÎªµÄÈË, ÍêÉÆ×Ô¼ºÈÏÎªÖØÒªµÄ!
+ * 6. ÈËÓëÈËÊÇ²»Í¬µÄ, ²»¾ßÓÐ¿É±ÈÐÔ, ÒªÊÇÏë±È½Ï, ÐèÒªÏÞ¶¨ºÜ¶àÇ°Ìá, ¶øÄÇÐ©¾ÍÓÖ»á²»È«Ãæ, ±Ï¾¹ÈË·ÇÊ¥ÏÍÊëÄÜÎÞ¹ý.
  * */
+// ÔËÐÐ½á¹ûÈçÏÂ:
+/*
+ 3ÐÐ3ÁÐÃÔ¹¬(²»°üÀ¨ÍâÇ½)
+Çë°´ÐÐÊäÈëÃÔ¹¬½á¹¹(²»°üÀ¨ÖÜ±ß,0ÎªÇ½,1ÎªÍ¨µÀ),Èç1 0 0 1
+1 1 1
+0 1 0
+1 0 1
+ÃÔ¹¬½á¹¹(°üÀ¨ÍâÇ½):
+  0  0  0  0  0
+  0  1  1  1  0
+  0  0  1  0  0
+  0  1  0  1  0
+  0  0  0  0  0
+ÇëÊäÈëÈë¿ÚµÄÐÐ,ÁÐ(×óÉÏ½ÇÎª1 1)
+1 1
+ÇëÊäÈë³ö¿ÚµÄÐÐ,ÁÐ(ÓÒÏÂ½ÇÎª3 3)
+3 3
+×ß³öÃÔ¹¬µÄÒ»¸ö·½°¸£º
+  1 -1 -1
+  0  2  0
+  1  0  3
+ */
 #include"constant.h"
-#define M 5 /* è¿·å®«è¡Œæ•°(åŒ…æ‹¬å¤–å¢™) */
-#define N 5 /* è¿·å®«åˆ—æ•°(åŒ…æ‹¬å¤–å¢™) */
-#define D 8 /* ç§»åŠ¨æ–¹å‘æ•°,åªèƒ½å–4å’Œ8ã€‚(8ä¸ª,å¯æ–œè¡Œ;4ä¸ª,åªå¯ç›´èµ°) */
+#define M 5 //*ÃÔ¹¬ÐÐÊý(°üÀ¨ÍâÇ½) */
+#define N 5 //*ÃÔ¹¬ÁÐÊý(°üÀ¨ÍâÇ½) */
+#define D 8 //*ÒÆ¶¯·½ÏòÊý,Ö»ÄÜÈ¡4ºÍ8¡£(8¸ö,¿ÉÐ±ÐÐ;4¸ö,Ö»¿ÉÖ±×ß) */
 
-#include"stack.h" /* æ ˆçš„å­˜å‚¨ç»“æž„ */
-#include"list.h" /* é˜Ÿåˆ—çš„å­˜å‚¨ç»“æž„ */
+#include"stack.h" //*Õ»µÄ´æ´¢½á¹¹ */
+#include"list.h" //*¶ÓÁÐµÄ´æ´¢½á¹¹ */
 
-struct /* ç§»åŠ¨æ•°ç»„,ç§»åŠ¨æ–¹å‘ç”±æ­£ä¸œèµ·é¡ºæ—¶é’ˆè½¬ */
+#define SElemType ElemType
+struct //*ÒÆ¶¯Êý×é,ÒÆ¶¯·½ÏòÓÉÕý¶«ÆðË³Ê±Õë×ª */
 {
     int x,y;
 #if D==8
@@ -30,34 +53,34 @@ struct /* ç§»åŠ¨æ•°ç»„,ç§»åŠ¨æ–¹å‘ç”±æ­£ä¸œèµ·é¡ºæ—¶é’ˆè½¬ */
 }move[D]={{0,1},{1,0},{0,-1},{-1,0}};
 #endif
 
-Status Path(int maze[M][N]) /* å¹¿åº¦æœç´¢æ³•æ±‚ä¸€æ¡è¿·å®«è·¯å¾„ */
+Status Path(int maze[M][N]) //*¹ã¶ÈËÑË÷·¨ÇóÒ»ÌõÃÔ¹¬Â·¾¶ */
 {
-    SqQueue q; /* é‡‡ç”¨éžå¾ªçŽ¯é¡ºåºé˜Ÿåˆ— */
-    QElemType qf,qt; /* å½“å‰ç‚¹å’Œä¸‹ä¸€ç‚¹ */
-    SqStack s; /* é‡‡ç”¨é¡ºåºæ ˆ */
-    int i,j,flag=1; /* å½“æ‰¾åˆ°å‡ºå£,flag=0 */
-    int x1,y1; /* ç»ˆç‚¹çš„åæ ‡ */
-    printf("è¯·è¾“å…¥å…¥å£çš„è¡Œ,åˆ—(å·¦ä¸Šè§’ä¸º1,1)\n");
-    scanf("%d,%d",&qf.x,&qf.y);
-    printf("è¯·è¾“å…¥å‡ºå£çš„è¡Œ,åˆ—(å³ä¸‹è§’ä¸º%d,%d)\n",M-2,N-2);
-    scanf("%d,%d",&x1,&y1);
-    qf.pre=-1; /* è®¾å…¥å£(ç¬¬ä¸€ç‚¹)çš„ä¸Šä¸€ç‚¹çš„åºå·=-1 */
-    maze[qf.x][qf.y]=-1; /* åˆå§‹ç‚¹è®¾ä¸º-1(å·²è®¿é—®è¿‡) */
+    SqQueue q; //*²ÉÓÃ·ÇÑ­»·Ë³Ðò¶ÓÁÐ */
+    ElemType qf,qt; //*µ±Ç°µãºÍÏÂÒ»µã */
+    SqStack s; //*²ÉÓÃË³ÐòÕ» */
+    int i,j,flag=1; //*µ±ÕÒµ½³ö¿Ú,flag=0 */
+    int x1,y1; //*ÖÕµãµÄ×ø±ê */
+    printf("ÇëÊäÈëÈë¿ÚµÄÐÐ,ÁÐ(×óÉÏ½ÇÎª1 1)\n");
+    scanf("%d %d",&qf.x,&qf.y);
+    printf("ÇëÊäÈë³ö¿ÚµÄÐÐ,ÁÐ(ÓÒÏÂ½ÇÎª%d %d)\n",M-2,N-2);
+    scanf("%d %d",&x1,&y1);
+    qf.pre=-1; //*ÉèÈë¿Ú(µÚÒ»µã)µÄÉÏÒ»µãµÄÐòºÅ=-1 */
+    maze[qf.x][qf.y]=-1; //*³õÊ¼µãÉèÎª-1(ÒÑ·ÃÎÊ¹ý) */
     InitQueue(&q);
-    EnQueue(&q,qf); /* èµ·ç‚¹å…¥é˜Ÿ */
+    EnQueue(&q,qf); //*ÆðµãÈë¶Ó */
     while(!QueueEmpty(q)&&flag)
-    { /* é˜Ÿåˆ—ä¸­è¿˜æœ‰æ²¡è¢«å¹¿åº¦æœç´¢è¿‡çš„ç‚¹ä¸”è¿˜æ²¡æ‰¾åˆ°å‡ºå£ */
-        DeQueue(&q,&qf); /* å‡ºé˜Ÿqfä¸ºå½“å‰ç‚¹ */
-        for(i=0;i<D;i++) /* å‘å„ä¸ªæ–¹å‘å°è¯• */
+    { //*¶ÓÁÐÖÐ»¹ÓÐÃ»±»¹ã¶ÈËÑË÷¹ýµÄµãÇÒ»¹Ã»ÕÒµ½³ö¿Ú */
+        DeQueue(&q,&qf); //*³ö¶ÓqfÎªµ±Ç°µã */
+        for(i=0;i<D;i++) //*Ïò¸÷¸ö·½Ïò³¢ÊÔ */
         {
-            qt.x=qf.x+move[i].x; /* ä¸‹ä¸€ç‚¹çš„åæ ‡ */
+            qt.x=qf.x+move[i].x; //*ÏÂÒ»µãµÄ×ø±ê */
             qt.y=qf.y+move[i].y;
             if(maze[qt.x][qt.y]==1)
-            { /* æ­¤ç‚¹æ˜¯é€šé“ä¸”ä¸æ›¾è¢«è®¿é—®è¿‡ */
-                maze[qt.x][qt.y]=-1; /* å·²è®¿é—®è¿‡ */
-                qt.pre=q.front-1; /* ä¸Šä¸€ç‚¹å¤„äºŽé˜Ÿåˆ—ä¸­çŽ°é˜Ÿå¤´å‡ä¸€çš„ä½ç½®(æ²¡åˆ é™¤) */
-                EnQueue(&q,qt); /* å…¥é˜Ÿ */
-                if(qt.x==x1&&qt.y==y1) /* åˆ°è¾¾ç»ˆç‚¹ */
+            { //*´ËµãÊÇÍ¨µÀÇÒ²»Ôø±»·ÃÎÊ¹ý */
+                maze[qt.x][qt.y]=-1; //*ÒÑ·ÃÎÊ¹ý */
+                qt.pre=q.front-1; //*ÉÏÒ»µã´¦ÓÚ¶ÓÁÐÖÐÏÖ¶ÓÍ·¼õÒ»µÄÎ»ÖÃ(Ã»É¾³ý) */
+                EnQueue(&q,qt); //*Èë¶Ó */
+                if(qt.x==x1&&qt.y==y1) //*µ½´ïÖÕµã */
                 {
                     flag=0;
                     break;
@@ -65,58 +88,62 @@ Status Path(int maze[M][N]) /* å¹¿åº¦æœç´¢æ³•æ±‚ä¸€æ¡è¿·å®«è·¯å¾„ */
             }
         }
     }
-    if(flag) /* æœç´¢å®Œæ•´ä¸ªé˜Ÿåˆ—è¿˜æ²¡åˆ°è¾¾ç»ˆç‚¹ */
+    if(flag) //*ËÑË÷ÍêÕû¸ö¶ÓÁÐ»¹Ã»µ½´ïÖÕµã */
     {
-        printf("æ²¡æœ‰è·¯å¾„å¯åˆ°è¾¾ç»ˆç‚¹ï¼\n");
+        printf("Ã»ÓÐÂ·¾¶¿Éµ½´ïÖÕµã£¡\n");
         return ERROR;
     }
     else
     {
-        InitStack(&s); /* åˆå§‹åŒ–sæ ˆ */
-        i=q.rear-1; /* iä¸ºå¾…å…¥æ ˆå…ƒç´ åœ¨é˜Ÿåˆ—ä¸­çš„ä½ç½® */
-        while(i>=0) /* æ²¡åˆ°å…¥å£ */
+        InitStack(&s); //*³õÊ¼»¯sÕ» */
+        i=q.rear-1; //*iÎª´ýÈëÕ»ÔªËØÔÚ¶ÓÁÐÖÐµÄÎ»ÖÃ */
+        while(i>=0) //*Ã»µ½Èë¿Ú */
         {
             Push(&s,*(q.base+i));
-            i=(*(q.base+i)).pre; /* iä¸ºå‰ä¸€å…ƒç´ åœ¨é˜Ÿåˆ—ä¸­çš„ä½ç½® */
+            i=(*(q.base+i)).pre; //*iÎªÇ°Ò»ÔªËØÔÚ¶ÓÁÐÖÐµÄÎ»ÖÃ */
         }
-        i=0; /* iä¸ºèµ°å‡ºè¿·å®«çš„æ­¥éª¤ */
+        i=0; //*iÎª×ß³öÃÔ¹¬µÄ²½Öè */
         while(!StackEmpty(s))
         {
             Pop(&s,&qf);
             i++;
             maze[qf.x][qf.y]=i;
         }
-        printf("èµ°å‡ºè¿·å®«çš„ä¸€ä¸ªæ–¹æ¡ˆï¼š\n");
-        for(i=1;i<M-1;i++) /* è¾“å‡ºmaze[][],å…¶å€¼æ˜¯èµ°å‡ºè¿·å®«çš„æ­¥éª¤ */
+        printf("×ß³öÃÔ¹¬µÄÒ»¸ö·½°¸£º\n");
+        for(i=1;i<M-1;i++) //*Êä³ömaze[][],ÆäÖµÊÇ×ß³öÃÔ¹¬µÄ²½Öè */
         {
             for(j=1;j<N-1;j++)
                 printf("%3d",maze[i][j]);
             printf("\n");
         }
-        return OK;
+//        return OK;
     }
 }
 
-void main()
+int main()
 {
     int i,j;
-    int maze[M][N]; /* è¿·å®«æ•°ç»„ */
-    printf("%dè¡Œ%dåˆ—è¿·å®«(ä¸åŒ…æ‹¬å¤–å¢™)\n",M-2,N-2);
-    for(i=0;i<N;i++)
-    { /* 0ä¸ºå¢™,1ä¸ºé€šé“ */
-        maze[0][i]=0; /* åŒ—å¢™ */
-        maze[M-1][i]=0; /* å—å¢™ */
+    int maze[M][N]; //*ÃÔ¹¬Êý×é */
+    printf("%dÐÐ%dÁÐÃÔ¹¬(²»°üÀ¨ÍâÇ½)\n",M-2,N-2);
+    
+    for(i=0;i<N;i++) // ³õÊ¼»¯ÃÔ¹¬
+    { //*0ÎªÇ½,1ÎªÍ¨µÀ */
+        maze[0][i]=0; //*±±Ç½ */
+        maze[M-1][i]=0; //*ÄÏÇ½ */
     }
     for(i=1;i<M-1;i++)
     {
-        maze[i][0]=0; /* è¥¿å¢™ */
-        maze[i][N-1]=0; /* ä¸œå¢™ */
+        maze[i][0]=0; //*Î÷Ç½ */
+        maze[i][N-1]=0; //*¶«Ç½ */
     }
-    printf("è¯·æŒ‰è¡Œè¾“å…¥è¿·å®«ç»“æž„(ä¸åŒ…æ‹¬å‘¨è¾¹,0ä¸ºå¢™,1ä¸ºé€šé“),å¦‚1 0 0 1\n");
-    for(i=1;i<M-1;i++)
+    
+    printf("Çë°´ÐÐÊäÈëÃÔ¹¬½á¹¹(²»°üÀ¨ÖÜ±ß,0ÎªÇ½,1ÎªÍ¨µÀ),Èç1 0 0 1\n");
+    for(i=1;i<M-1;i++) // ¶ÁÈ¡ÃÔ¹¬ÄÚ²¿½á¹¹
         for(j=1;j<N-1;j++)
             scanf("%d",&maze[i][j]);
-    printf("è¿·å®«ç»“æž„(åŒ…æ‹¬å¤–å¢™):\n");
+    getchar();
+   
+    printf("ÃÔ¹¬½á¹¹(°üÀ¨ÍâÇ½):\n"); // Êä³öÃÔ¹¬
     for(i=0;i<M;i++)
     {
         for(j=0;j<N;j++)
@@ -124,4 +151,6 @@ void main()
         printf("\n");
     }
     Path(maze);
+    system("pause");
+    return 0;
 }

@@ -4,19 +4,19 @@
 
 #ifndef POLY_COMMON_H
 #define POLY_COMMON_H
-/* common.h æŠ½è±¡æ•°æ®ç±»å‹Polynomialçš„å®ç°
- * æœ¬ç¨‹åºä¸­çš„é“¾è¡¨æ— å¤´ç»“ç‚¹
+/* common.h ³éÏóÊı¾İÀàĞÍPolynomialµÄÊµÏÖ
+ * ±¾³ÌĞòÖĞµÄÁ´±íÎŞÍ·½áµã
  * */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct /* é¡¹çš„è¡¨ç¤º,å¤šé¡¹å¼çš„é¡¹ä½œä¸ºLinkListçš„æ•°æ®å…ƒç´  */
+typedef struct /* ÏîµÄ±íÊ¾,¶àÏîÊ½µÄÏî×÷ÎªLinkListµÄÊı¾İÔªËØ */
 {
-    float coef; /* ç³»æ•° */
-    int expn; /* æŒ‡æ•° */
+    float coef; /* ÏµÊı */
+    int expn; /* Ö¸Êı */
 }term,ElemType;
-/* ä¸¤ä¸ªç±»å‹å:termç”¨äºæœ¬ADT,ElemTypeä¸ºLinkListçš„æ•°æ®å¯¹è±¡å */
+/* Á½¸öÀàĞÍÃû:termÓÃÓÚ±¾ADT,ElemTypeÎªLinkListµÄÊı¾İ¶ÔÏóÃû */
 
 #define TRUE 1
 #define FALSE 0
@@ -27,22 +27,22 @@ typedef struct /* é¡¹çš„è¡¨ç¤º,å¤šé¡¹å¼çš„é¡¹ä½œä¸ºLinkListçš„æ•°æ®å…ƒç´  */
 
 typedef int Status;
 
-/* å¸¦å¤´ç»“ç‚¹çš„çº¿æ€§é“¾è¡¨ç±»å‹ */
-typedef struct LNode /* ç»“ç‚¹ç±»å‹ */
+/* ´øÍ·½áµãµÄÏßĞÔÁ´±íÀàĞÍ */
+typedef struct LNode /* ½áµãÀàĞÍ */
 {
     ElemType data;
     struct LNode *next;
 }LNode,*Link,*Position;
 
-typedef struct LinkList /* é“¾è¡¨ç±»å‹ */
+typedef struct LinkList /* Á´±íÀàĞÍ */
 {
-    Link head,tail; /* åˆ†åˆ«æŒ‡å‘çº¿æ€§é“¾è¡¨ä¸­çš„å¤´ç»“ç‚¹å’Œæœ€åä¸€ä¸ªç»“ç‚¹ */
-    int len; /* æŒ‡ç¤ºçº¿æ€§é“¾è¡¨ä¸­æ•°æ®å…ƒç´ çš„ä¸ªæ•° */
+    Link head,tail; /* ·Ö±ğÖ¸ÏòÏßĞÔÁ´±íÖĞµÄÍ·½áµãºÍ×îºóÒ»¸ö½áµã */
+    int len; /* Ö¸Ê¾ÏßĞÔÁ´±íÖĞÊı¾İÔªËØµÄ¸öÊı */
 }LinkList;
 
 typedef LinkList polynomial;
-#define DestroyPolyn DestroyList /* ä¸bo2-6.cppä¸­çš„å‡½æ•°åŒä¹‰ä¸åŒå */
-#define PolynLength ListLength /* ä¸bo2-6.cppä¸­çš„å‡½æ•°åŒä¹‰ä¸åŒå */
+#define DestroyPolyn DestroyList /* Óëbo2-6.cppÖĞµÄº¯ÊıÍ¬Òå²»Í¬Ãû */
+#define PolynLength ListLength /* Óëbo2-6.cppÖĞµÄº¯ÊıÍ¬Òå²»Í¬Ãû */
 
 Status MakeNode(Link *p,ElemType e);
 void FreeNode(Link *p);
@@ -50,8 +50,8 @@ Status InitList(LinkList *L);
 Status ClearList(LinkList *L);
 Status DestroyList(LinkList *L);
 
-Status InsFirst(LinkList *L,Link h,Link s); /* å½¢å‚å¢åŠ L,å› ä¸ºéœ€ä¿®æ”¹L */
-Status DelFirst(LinkList *L,Link h,Link *q); /* å½¢å‚å¢åŠ L,å› ä¸ºéœ€ä¿®æ”¹L */
+Status InsFirst(LinkList *L,Link h,Link s); /* ĞÎ²ÎÔö¼ÓL,ÒòÎªĞèĞŞ¸ÄL */
+Status DelFirst(LinkList *L,Link h,Link *q); /* ĞÎ²ÎÔö¼ÓL,ÒòÎªĞèĞŞ¸ÄL */
 Status Append(LinkList *L,Link s);
 Position PriorPos(LinkList L,Link p);
 Status Remove(LinkList *L,Link *q);
@@ -71,13 +71,13 @@ Status OrderInsert(LinkList *L,ElemType e,int (*comp)(ElemType,ElemType));
 Status LocateElemP(LinkList L,ElemType e,Position *q,int(*compare)(ElemType,ElemType));
 
 
-/*  å¤šé¡¹å¼ç›¸å…³çš„å‡½æ•° */
+/*  ¶àÏîÊ½Ïà¹ØµÄº¯Êı */
 Status OrderInsertMerge(LinkList *L,ElemType e,int(* compare)(term,term));
-//int cmp(term a,term b) /* CreatPolyn()çš„å®å‚ */;
+//int cmp(term a,term b) /* CreatPolyn()µÄÊµ²Î */;
 int cmp(ElemType a, ElemType b);
-void CreatPolyn(polynomial *P,int m); /* ç®—æ³•2.22 */
+void CreatPolyn(polynomial *P,int m); /* Ëã·¨2.22 */
 void PrintPolyn(polynomial P);
-void AddPolyn(polynomial *Pa,polynomial *Pb); /* ç®—æ³•2.23 */
+void AddPolyn(polynomial *Pa,polynomial *Pb); /* Ëã·¨2.23 */
 void AddPolyn1(polynomial *Pa,polynomial *Pb);
 void Opposite(polynomial Pa);
 void SubtractPolyn(polynomial *Pa,polynomial *Pb);

@@ -433,12 +433,10 @@ Status Visit(VertexType v)
     printf("%s", v);
     return 0;
 }
-
 void DFS(MGraph G,int v)
 { /* 从第v个顶点出发递归地深度优先遍历图G。算法7.5 */
     VertexType w1,v1;
     int w;
-    VisitFunc= Visit;
     visited[v]=TRUE; /* 设置访问标志为TRUE(已访问) */
     VisitFunc(G.vexs[v]); /* 访问第v个顶点 */
     strcpy(v1,*GetVex(G,v));
@@ -460,6 +458,35 @@ void DFSTraverse(MGraph G,Status(*Visit)(VertexType))
             DFS(G,v); /* 对尚未访问的顶点调用DFS */
     printf("\n");
 }
+
+
+//
+//void DFS(MGraph G,int v)
+//{ /* 从第v个顶点出发递归地深度优先遍历图G。算法7.5 */
+//    VertexType w1,v1;
+//    int w;
+//    VisitFunc= Visit;
+//    visited[v]=TRUE; /* 设置访问标志为TRUE(已访问) */
+//    VisitFunc(G.vexs[v]); /* 访问第v个顶点 */
+//    strcpy(v1,*GetVex(G,v));
+//    for(w=FirstAdjVex(G,v1);w>=0;w=NextAdjVex(G,v1,strcpy(w1,*GetVex(G,w))))
+//        if(!visited[w])
+//            DFS(G,w); /* 对v的尚未访问的序号为w的邻接顶点递归调用DFS */
+//}
+//
+//void DFSTraverse(MGraph G,Status(*Visit)(VertexType))
+//{ /* 初始条件: 图G存在,Visit是顶点的应用函数。算法7.4 */
+//    /* 操作结果: 从第1个顶点起,深度优先遍历图G,并对每个顶点调用函数Visit */
+//    /*           一次且仅一次。一旦Visit()失败,则操作失败 */
+//    int v;
+//    VisitFunc=Visit; /* 使用全局变量VisitFunc,使DFS不必设函数指针参数 */
+//    for(v=0;v<G.vexnum;v++)
+//        visited[v]=FALSE; /* 访问标志数组初始化(未被访问) */
+//    for(v=0;v<G.vexnum;v++)
+//        if(!visited[v])
+//            DFS(G,v); /* 对尚未访问的顶点调用DFS */
+//    printf("\n");
+//}
 
 typedef VRType QElemType; /* 队列类型 */
 //#include"bo3-2.c" /* BFSTraverse()用 */

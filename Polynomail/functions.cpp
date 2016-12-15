@@ -9,16 +9,16 @@ Status MakeNode_E(Link &p, ElemType e)
     p = (Link)malloc(sizeof(LNode));
     if(!p)
         exit(OVERFLOW);
-    **p->data = e;
-    **p ->next= NULL;
+    p->data = e;
+    p ->next= NULL;
     return OK;
 }
 
 void FreeNode_E(Link &p)//释放结点
 {
 
-    free(*p);
-    *p = NULL;
+    free(p);
+    p = NULL;
 }
 
 Status InitList_E(LinkList &L)
@@ -27,9 +27,9 @@ Status InitList_E(LinkList &L)
     Link p;
     p = (Link)malloc(sizeof(LNode));
     if(!p) exit(OVERFLOW);
-    *p ->next=NULL;
-    *L.head = *L.tail = p;
-    *L.len = 0;
+    p ->next=NULL;
+    L.head = L.tail = p;
+    L.len = 0;
     return  OK;
 }
 
@@ -40,44 +40,44 @@ Status DestroyList_E(LinkList &L)
     while (p)
     {
         q=p;
-        p = *p->next;
+        p = p->next;
         free(p);
     }
-    *L.head = *L.tail = NULL;
-    *L.len=0;
+    L.head = L.tail = NULL;
+    L.len=0;
     return OK;
 }
 
 Status InsFirst_E(LinkList &L,Link h,Link s)
 //已知h指向线性链表的头结点,将s所指结点插入在第一个结点之前
 {
-    *s->next=*h->next;
-    *h->next=s;
-    *L.len++;
-    if(*L.tail == h)    *L.tail = s;
+    s->next=h->next;
+    h->next=s;
+    L.len++;
+    if(L.tail == h)    L.tail = s;
     return OK;
 }
 
 Status DelFirst_E(LinkList &L,Link h,Link &q)
 //已知h指向线性链表的头结点,删除表中的第一个结点并以q返回
 {
-    if(!((*h).next)) return ERROR;
-    if(!(*(*h).next).next)  L.tail=L.head;
-    *q=*h->next;
-    *h->next=(*(*h).next).next;
-    *L.len--;
+    if(!(h->next)) return ERROR;
+    if(!h->next->next)  L.tail=L.head;
+    q=h->next;
+    h->next=h->next->next;
+    L.len--;
     return OK;
 }
 
-void AddPolyn(polynomial *Pa,polynomial *Pb) /* 算法2.23 */
+void AddPolyn(polynomial pa,polynomial pb) /* 算法2.23 */
 { /* 多项式加法:Pa=Pa+Pb,并销毁一元多项式Pb */
     Position ha,hb,qa,qb;
     term a,b;
-    ha=GetHead_E(*Pa);
-    hb=GetHead_E(*Pb); /* ha和hb分别指向Pa和Pb的头结点 */
+    ha=GetHead_E(pa);
+    hb=GetHead_E(pb); /* ha和hb分别指向Pa和Pb的头结点 */
     qa=NextPos_E(ha);
     qb=NextPos_E(hb); /* qa和qb分别指向Pa和Pb中当前结点（现为第一个结点） */
-    while(!ListEmpty(*Pa)&&!ListEmpty(*Pb)&&qa)
+    while(!ListEmpty(pa)&&!ListEmpty(pb)&&qa)
     { /* Pa和Pb均非空且ha没指向尾结点(qa!=0) */
         a=GetCurElem_E(qa);
         b=GetCurElem_E(qb); /* a和b为两表中当前比较元素 */
@@ -106,9 +106,9 @@ void AddPolyn(polynomial *Pa,polynomial *Pb) /* 算法2.23 */
                 qb=NextPos_E(hb);
         }
     }
-    if(!ListEmpty(*Pb))
+    if(!ListEmpty(pb))
     {
-        (*Pb).tail=hb;
+        (pb).tail=hb;
         Append_E(Pa,qb); /* 链接Pb中剩余结点 */
     }
     DestroyPolyn(Pb); /* 销毁Pb */
@@ -120,31 +120,31 @@ Status Append_E(LinkList &L,Link s)//
 {
     Link p,q;
     int count=0;
-    p=(*L).tail;
-    (*p).next=s;
+    p=(L).tail;
+    (p).next=s;
     while(s)
     {
         q=s;
-        s=(*s).next;
+        s=s.next;
         count++;
     }
-    (*L).tail=q;
-    (*L).len+=count;
+    (L).tail=q;
+    (L).len+=count;
     return OK;
 }
 
 Status SetCurElem_E(Link &p,ElemType e)//
 //已知p指向线性链表中的一个结点，用e更新p所指结点中数据元素的值。
 {
-    if(!(*p)) return ERROR;
-    (**p).data=e;
+    if(!(p)) return ERROR;
+    (p).data=e;
     return OK;
 }
 
 ElemType GetCurElem_E(Link p)//
 //已知p指向线性链表中的一个结点，返回p所指结点中数据元素的值。
 {
-    return (*p).data;
+    return (p).data;
 }
 
 int ListLength_E(LinkList L)//
@@ -163,10 +163,10 @@ Position NextPos_E(LinkList L,Link p)
 //已知p指向线性链表L中的一个结点，返回p所指结点的直接后继的位置，
 //若无后继，则返回NULL。
 {
-    return (*p).next;
+    return (p).next;
 }
 
-void CreatPolyn(polynomial *p, int m)
+void CreatPolyn(polynomial p, int m)
 //算法2.22,输入m项的系数和指数,建立一元多项式的有序链表p
 {
     Position h;
@@ -178,14 +178,14 @@ void CreatPolyn(polynomial *p, int m)
     e.coef=0.0;
     e.expn=-1;
     SetCurElem_E(q, e);//设置头结点的数据元素
-    *h->next=NULL;
+    h->next=NULL;
     for(i=1; i<=m; i++)
     {
         printf("请输入第%d组元素:", i);
         scanf("%d%d", &(e.coef), &(e.expn));
         MakeNode_E(p, e);
         InsFirst_E(p, h, q);
-        h=(*h).next;
+        h=(h).next;
     }
 }
 
@@ -198,28 +198,28 @@ void PrintPolyn(polynomial p)
 //输出一元多项式
 {
     Link q;
-    q=(*p.head).next;
+    q=(p.head).next;
     for (int i = 0; i <i; ++i) {
         if(i==1)
-            printf("%g", (*q).data.coef);
+            printf("%g", (q).data.coef);
         else
         {
-            if(*q->data>0)
+            if(q->data>0)
             {
                 printf("+");
-                printf("%g", *q->data.coef);
+                printf("%g", q->data.coef);
             } else{
                 printf("-");
-                printf("%g", -(*q).data.coef);
+                printf("%g", -(q).data.coef);
             }
         }
-        if((*q).data.expn)
+        if((q).data.expn)
         {
             printf("X");
-            if((*q).data.expn!=1)
-                printf("^%d", *q->data.expn);
+            if((q).data.expn!=1)
+                printf("^%d", q->data.expn);
         }
-        q=*q->next;
+        q=q->next;
     }
 }
 
@@ -237,23 +237,23 @@ int cmp(term a,term b)
     else return 1;
 }
 
-void AddPolyn(polynomial *Pa,polynomial *Pb)
+void AddPolyn(polynomial pa,polynomial pb)
 //算法2.23：多项式加法：Pa=Pa+Pb,利用两个多项式的结点构成“和多项式”
 {
     term a,b;
     float sum;
     Position ha,hb,qa,qb;
-    ha=GetHead_E(*Pa);
-    hb=GetHead_E(*Pb);
-    qa=NextPos_E(*Pa,ha);
-    qb=NextPos_E(*Pb,hb);
+    ha=GetHead_E(pa);
+    hb=GetHead_E(pb);
+    qa=NextPos_E(pa,ha);
+    qb=NextPos_E(pb,hb);
     while(qa&&qb)
     {
         a=GetCurElem_E(qa);
         b=GetCurElem_E(qb);
         switch(cmp(a,b))
         {
-            case -1:ha=qa;qa=NextPos_E(*Pa,ha);break;
+            case -1:ha=qa;qa=NextPos_E(pa,ha);break;
             case 0:
                 sum=a.coef+b.coef;
                 if(sum!=0)
@@ -269,14 +269,14 @@ void AddPolyn(polynomial *Pa,polynomial *Pb)
                 }
                 DelFirst_E(Pb,hb,&qb);
                 FreeNode_E(&qb);
-                qa=NextPos_E(*Pa,ha);
-                qb=NextPos_E(*Pb,hb);
+                qa=NextPos_E(pa,ha);
+                qb=NextPos_E(pb,hb);
                 break;
             case 1:
                 DelFirst_E(Pb,hb,&qb);
                 InsFirst_E(Pa,ha,qb);
-                qb=NextPos_E(*Pb,hb);
-                ha=NextPos_E(*Pa,ha);
+                qb=NextPos_E(pb,hb);
+                ha=NextPos_E(pa,ha);
                 break;
         }
     }

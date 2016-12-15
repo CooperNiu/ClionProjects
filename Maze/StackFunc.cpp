@@ -1,10 +1,10 @@
-///* StackFunc.cpp é¡ºåºæ ˆï¼ˆå­˜å‚¨ç»“æ„ç”±c3-1.hå®šä¹‰ï¼‰çš„åŸºæœ¬æ“ä½œï¼ˆ9ä¸ªï¼‰ */
+///* StackFunc.cpp Ë³ĞòÕ»£¨´æ´¢½á¹¹ÓÉc3-1.h¶¨Òå£©µÄ»ù±¾²Ù×÷£¨9¸ö£© */
 // Created by Cooper on 28/10/2016.
 //
 #include "constant.h"
 #include "stack.h"
 
-Status GetTop(SqStack S, SElemType *e) { /* è‹¥æ ˆä¸ç©ºï¼Œåˆ™ç”¨eè¿”å›Sçš„æ ˆé¡¶å…ƒç´ ï¼Œå¹¶è¿”å›OKï¼›å¦åˆ™è¿”å›ERROR */
+Status GetTop(SqStack S, ElemType *e) { /* ÈôÕ»²»¿Õ£¬ÔòÓÃe·µ»ØSµÄÕ»¶¥ÔªËØ£¬²¢·µ»ØOK£»·ñÔò·µ»ØERROR */
     if(S.top>S.base)
     {
         *e=*(S.top-1);
@@ -14,12 +14,12 @@ Status GetTop(SqStack S, SElemType *e) { /* è‹¥æ ˆä¸ç©ºï¼Œåˆ™ç”¨eè¿”å›Sçš„æ ˆé
         return ERROR;
 }
 
-Status Push(SqStack *S, SElemType e) { /* æ’å…¥å…ƒç´ eä¸ºæ–°çš„æ ˆé¡¶å…ƒç´  */
-    if((*S).top-(*S).base>=(*S).stacksize) /* æ ˆæ»¡ï¼Œè¿½åŠ å­˜å‚¨ç©ºé—´ */
+Status Push(SqStack *S, ElemType e) { /* ²åÈëÔªËØeÎªĞÂµÄÕ»¶¥ÔªËØ */
+    if((*S).top-(*S).base>=(*S).stacksize) /* Õ»Âú£¬×·¼Ó´æ´¢¿Õ¼ä */
     {
-        (*S).base=(SElemType *)realloc((*S).base,((*S).stacksize+STACKINCREMENT)*sizeof(SElemType));
+        (*S).base=(ElemType *)realloc((*S).base,((*S).stacksize+STACKINCREMENT)*sizeof(ElemType));
         if(!(*S).base)
-            exit(OVERFLOW); /* å­˜å‚¨åˆ†é…å¤±è´¥ */
+            exit(OVERFLOW); /* ´æ´¢·ÖÅäÊ§°Ü */
         (*S).top=(*S).base+(*S).stacksize;
         (*S).stacksize+=STACKINCREMENT;
     }
@@ -27,38 +27,38 @@ Status Push(SqStack *S, SElemType e) { /* æ’å…¥å…ƒç´ eä¸ºæ–°çš„æ ˆé¡¶å…ƒç´  */
     return OK;
 }
 
-Status Pop(SqStack *S, SElemType *e) { /* è‹¥æ ˆä¸ç©ºï¼Œåˆ™åˆ é™¤Sçš„æ ˆé¡¶å…ƒç´ ï¼Œç”¨eè¿”å›å…¶å€¼ï¼Œå¹¶è¿”å›OKï¼›å¦åˆ™è¿”å›ERROR */
+Status Pop(SqStack *S, ElemType *e) { /* ÈôÕ»²»¿Õ£¬ÔòÉ¾³ıSµÄÕ»¶¥ÔªËØ£¬ÓÃe·µ»ØÆäÖµ£¬²¢·µ»ØOK£»·ñÔò·µ»ØERROR */
     if((*S).top==(*S).base)
         return ERROR;
     *e=*--(*S).top;
     return OK;
 }
 
-Status StackTraverse(SqStack S, Status (*visit)(SElemType)) { /* ä»æ ˆåº•åˆ°æ ˆé¡¶ä¾æ¬¡å¯¹æ ˆä¸­æ¯ä¸ªå…ƒç´ è°ƒç”¨å‡½æ•°visit()ã€‚ */
-    /* ä¸€æ—¦visit()å¤±è´¥ï¼Œåˆ™æ“ä½œå¤±è´¥ */
+Status StackTraverse(SqStack S, Status (*visit)(ElemType)) { /* ´ÓÕ»µ×µ½Õ»¶¥ÒÀ´Î¶ÔÕ»ÖĞÃ¿¸öÔªËØµ÷ÓÃº¯Êıvisit()¡£ */
+    /* Ò»µ©visit()Ê§°Ü£¬Ôò²Ù×÷Ê§°Ü */
     while(S.top>S.base)
         visit(*S.base++);
     printf("\n");
     return OK;
 }
 
-int StackLength(SqStack S) { /* è¿”å›Sçš„å…ƒç´ ä¸ªæ•°ï¼Œå³æ ˆçš„é•¿åº¦ */
+int StackLength(SqStack S) { /* ·µ»ØSµÄÔªËØ¸öÊı£¬¼´Õ»µÄ³¤¶È */
     return S.top-S.base;
 }
 
-Status ClearStack(SqStack *S) { /* æŠŠSç½®ä¸ºç©ºæ ˆ */
+Status ClearStack(SqStack *S) { /* °ÑSÖÃÎª¿ÕÕ» */
     (*S).top=(*S).base;
     return OK;
 }
 
-Status StackEmpty(SqStack S) { /* è‹¥æ ˆSä¸ºç©ºæ ˆï¼Œåˆ™è¿”å›TRUEï¼Œå¦åˆ™è¿”å›FALSE */
+Status StackEmpty(SqStack S) { /* ÈôÕ»SÎª¿ÕÕ»£¬Ôò·µ»ØTRUE£¬·ñÔò·µ»ØFALSE */
     if(S.top==S.base)
         return TRUE;
     else
         return FALSE;
 }
 
-Status DestroyStack(SqStack *S) { /* é”€æ¯æ ˆSï¼ŒSä¸å†å­˜åœ¨ */
+Status DestroyStack(SqStack *S) { /* Ïú»ÙÕ»S£¬S²»ÔÙ´æÔÚ */
     free((*S).base);
     (*S).base=NULL;
     (*S).top=NULL;
@@ -66,10 +66,10 @@ Status DestroyStack(SqStack *S) { /* é”€æ¯æ ˆSï¼ŒSä¸å†å­˜åœ¨ */
     return OK;
 }
 
-Status InitStack(SqStack *S) { /* æ„é€ ä¸€ä¸ªç©ºæ ˆS */
-    (*S).base=(SElemType *)malloc(STACK_INIT_SIZE*sizeof(SElemType));
+Status InitStack(SqStack *S) { /* ¹¹ÔìÒ»¸ö¿ÕÕ»S */
+    (*S).base=(ElemType *)malloc(STACK_INIT_SIZE*sizeof(ElemType));
     if(!(*S).base)
-        exit(OVERFLOW); /* å­˜å‚¨åˆ†é…å¤±è´¥ */
+        exit(OVERFLOW); /* ´æ´¢·ÖÅäÊ§°Ü */
     (*S).top=(*S).base;
     (*S).stacksize=STACK_INIT_SIZE;
     return OK;
