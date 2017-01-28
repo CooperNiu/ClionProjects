@@ -88,6 +88,9 @@
 		<Unit filename="C:/Users/Cooper/ClionProjects/BiTNode/main.cpp">
 			<Option target="BiTNode"/>
 		</Unit>
+		<Unit filename="C:/Users/Cooper/ClionProjects/BiTNode/test.cpp">
+			<Option target="BiTNode"/>
+		</Unit>
 		<Unit filename="C:/Users/Cooper/ClionProjects/BiTNode/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

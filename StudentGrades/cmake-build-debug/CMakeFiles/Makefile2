@@ -53,45 +53,45 @@ RM = "C:\Program Files (x86)\JetBrains\CLion 2016.3\bin\cmake\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Cooper\ClionProjects\BiTNode
+CMAKE_SOURCE_DIR = C:\Users\Cooper\ClionProjects\StudentGrades
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Cooper\ClionProjects\BiTNode\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\Cooper\ClionProjects\StudentGrades\cmake-build-debug
 
 #=============================================================================
-# Target rules for target CMakeFiles/BiTNode.dir
+# Target rules for target CMakeFiles/StudentGrades.dir
 
 # All Build rule for target.
-CMakeFiles/BiTNode.dir/all:
-	$(MAKE) -f CMakeFiles\BiTNode.dir\build.make CMakeFiles/BiTNode.dir/depend
-	$(MAKE) -f CMakeFiles\BiTNode.dir\build.make CMakeFiles/BiTNode.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Cooper\ClionProjects\BiTNode\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Built target BiTNode"
-.PHONY : CMakeFiles/BiTNode.dir/all
+CMakeFiles/StudentGrades.dir/all:
+	$(MAKE) -f CMakeFiles\StudentGrades.dir\build.make CMakeFiles/StudentGrades.dir/depend
+	$(MAKE) -f CMakeFiles\StudentGrades.dir\build.make CMakeFiles/StudentGrades.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Cooper\ClionProjects\StudentGrades\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target StudentGrades"
+.PHONY : CMakeFiles/StudentGrades.dir/all
 
 # Include target in all.
-all: CMakeFiles/BiTNode.dir/all
+all: CMakeFiles/StudentGrades.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/BiTNode.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Cooper\ClionProjects\BiTNode\cmake-build-debug\CMakeFiles 3
-	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/BiTNode.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Cooper\ClionProjects\BiTNode\cmake-build-debug\CMakeFiles 0
-.PHONY : CMakeFiles/BiTNode.dir/rule
+CMakeFiles/StudentGrades.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Cooper\ClionProjects\StudentGrades\cmake-build-debug\CMakeFiles 2
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/StudentGrades.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Cooper\ClionProjects\StudentGrades\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles/StudentGrades.dir/rule
 
 # Convenience name for target.
-BiTNode: CMakeFiles/BiTNode.dir/rule
+StudentGrades: CMakeFiles/StudentGrades.dir/rule
 
-.PHONY : BiTNode
-
-# clean rule for target.
-CMakeFiles/BiTNode.dir/clean:
-	$(MAKE) -f CMakeFiles\BiTNode.dir\build.make CMakeFiles/BiTNode.dir/clean
-.PHONY : CMakeFiles/BiTNode.dir/clean
+.PHONY : StudentGrades
 
 # clean rule for target.
-clean: CMakeFiles/BiTNode.dir/clean
+CMakeFiles/StudentGrades.dir/clean:
+	$(MAKE) -f CMakeFiles\StudentGrades.dir\build.make CMakeFiles/StudentGrades.dir/clean
+.PHONY : CMakeFiles/StudentGrades.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/StudentGrades.dir/clean
 
 .PHONY : clean
 
