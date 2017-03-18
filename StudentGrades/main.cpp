@@ -1,70 +1,29 @@
-//#include <algorithm>
-//#include<iostream>
-//#include <string>
-//#include <iomanip>
-//#include <ios>
-//#include <vector>
-//#include <cstdlib>
-//
-//using namespace std;
-//
-//int main()
-//{
-//    //ask for and read the student's name
-//    cout<<"Please enter your midterm and final exam grades: ";
-//    double midterm, final;
-//    cin>>midterm>>final;
-//
-//    //ask for the homework grades
-//    cout<<"Enter all your homework grades,"
-//        "followed by end-of-file: ";
-//
-//    //the number and sum of grades read so far
-//    int count = 0;
-//    double sum = 0;
-//
-//    //a viriable into which to read
-//    double x;
-//
-//    //invariant
-//    //we have read count grades so far, and
-//    //sum is the sum of the first count grades
-//    while(cin>>x)
-//    {
-//        ++count;
-//        sum+=x;
-//    }
-//    /*There are several ways in which trying to read from a stream can be unsuccessful:
-//        We might have reached the end of the input file.
-//        We might have encountered input that is incompatible with the type of the variable that we are trying to read, such as might happen if we try to read an int and find something that isn't a number.
-//        The system might have detected a hardware failure on the input device.
-//     */
-//
-//    // write the result
-//    streamsize prec = cout.precision(); //precision means “精度”
-//    cout << "Your final grade is " << setprecision(3)
-//    <<0.2*midterm + 0.4 * final + 0.4 * sum / count
-//    << setprecision(prec) << endl;
-//    // setprecision changes the precision of any subsequent output that might appear on cout
-//	system("pause");
-//	return 0;
-//}
 /*
- * 在校大学生一枚，搬运工，资源控，视觉系，资深电影及音乐发烧友，善发现，喜分享，以感恩先行者的名义为后继者分享，这个世界美好的东西太多，关键在于有一颗发现的心，一份分享的情怀，互联无极限，探索无止境！
+* Copyright (c) 2001,上海贝尔有限公司网络应用事业部
+* All rights reserved.
+*
+* 文件名称：filename.h
+* 文件标识：见配置管理计划书
+* 摘 要：简要描述本文件的内容
+*
+* 当前版本：1.1
+* 作 者：输入作者（或修改者）名字
+* 完成日期：2001年7月20日
+*
+* 取代版本：1.0
+* 原作者 ：输入原作者（或修改者）名字
+* 完成日期：2001年5月10日
+*/
+
+
+/*
+ * 在校大学生一枚，搬运工，资源控，视觉系，资深电影及音乐发烧友，善发现，喜分享，以感恩先行者的名义为后继者分享，
+ * 这个世界美好的东西太多，关键在于有一颗发现的心，一份分享的情怀，互联无极限，探索无止境！
  */
 
-#include <algorithm>
-#include <iomanip>
-#include <ios>
-#include <iostream>
-#include <string>
-#include <vector>
-
-///these usages are better than "using namespace std"
-using std::cin;             using std::sort;
-using std::cout;            using std::streamsize;
-using std::endl;            using std::string;
-using std::setprecision;    using std::vector;
+#include "CommonUsageHeader.h"
+// I made a commonly use header so that I can use it any time I program!
+// No repetition is better
 
 int main()
 {
