@@ -1,29 +1,35 @@
-//#include <iostream>
-//#include "Student.h"
-//#include <string>
-//
-//using namespace std;
-//
-//int main() {
+#include <iostream>
+#include "Student.h"
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	Student stu[STU_NUM];
+
+	cout<<"the student number is "<<STU_NUM
+		<<"\n each student information is as below:\n";
+	for (int i = 0; i < STU_NUM; ++i) {
+		cout<<"NO."<<i<<" student\n";
+		stu[i].OutPut();
+		cout<<"\n GradeSum is "<<stu[i].gradesum(stu[i])<<"\n";
+	}
+
+	return 0;
 //    string name = "Cooper";
 //    float grade[CLASS];
-////	Student stu1, stu2;
+//	Student stu1, stu2;
 //    Student stu3;
-//
-////    stu1.Student();
-////    stu2.Student();
-////    stu3.Student();
-//
-////    stu1.OutPut();
-////    stu2.OutPut();
+//    stu1.Student();
+//    stu2.Student();
+//    stu3.Student();
+//    stu1.OutPut();
+//    stu2.OutPut();
 //    stu3.OutPut();
-//
 //    stu3.~Student();
-//
-//    stu3.OutPut();
-//
-//    return 0;
-//}
+//	stu3.OutPut();
+}
 
 //#include <iostream>
 //
@@ -143,58 +149,59 @@
 //	return 0;
 //}
 
-//5_4.cpp
-#include <iostream>
-
-using namespace std;
-
-class Point
-{    //Point类定义
-public:    //外部接口
-	Point ( int x = 0, int y = 0 ) : x ( x ), y ( y )
-	{ //构造函数
-		//在构造函数中对count累加，所有对象共同维护同一个count
-		count ++;
-	}
-	
-	Point ( Point &p )
-	{    //复制构造函数
-		x = p . x;
-		y = p . y;
-		count ++;
-	}
-	
-	~Point ( )
-	{ count --; }
-	
-	int getX ( )
-	{ return x; }
-	
-	int getY ( )
-	{
-		return y;
-	}
-	
-	void showCount ( )
-	{        //输出静态数据成员
-		cout << "  Object count = " << count << endl;
-	}
-
-private:    //私有数据成员
-	int x, y;
-	
-	static int count;    //静态数据成员声明，用于记录点的个数
-};
-
-int Point::count = 0;//静态数据成员定义和初始化，使用类名限定
-int main ( )
-{    //主函数
-	Point a ( 4, 5 );    //定义对象a，其构造函数回使count增1
-	cout << "Point A: " << a . getX ( ) << ", " << a . getY ( );
-	a . showCount ( );    //输出对象个数
-	Point b ( a );    //定义对象b，其构造函数回使count增1
-	cout << "Point B: " << b . getX ( ) << ", " << b . getY ( );
-	b . showCount ( );    //输出对象个数
-	return 0;
-}
+////5_4.cpp
+//#include <iostream>
+//
+//using namespace std;
+//
+//class Point
+//{    //Point类定义
+//public:    //外部接口
+//	Point(int x = 0, int y = 0)
+//		: x(x), y(y)
+//	{ //构造函数
+//		//在构造函数中对count累加，所有对象共同维护同一个count
+//		count++;
+//	}
+//
+//	Point(Point &p)
+//	{    //复制构造函数
+//		x = p.x;
+//		y = p.y;
+//		count++;
+//	}
+//
+//	~Point()
+//	{ count--; }
+//
+//	int getX()
+//	{ return x; }
+//
+//	int getY()
+//	{
+//		return y;
+//	}
+//
+//	void showCount()
+//	{        //输出静态数据成员
+//		cout << "  Object count = " << count << endl;
+//	}
+//
+//private:    //私有数据成员
+//	int x, y;
+//
+//	static int count;    //静态数据成员声明，用于记录点的个数
+//};
+//
+//int Point::count = 0;//静态数据成员定义和初始化，使用类名限定
+//int main()
+//{    //主函数
+//	Point a(4, 5);    //定义对象a，其构造函数回使count增1
+//	cout << "Point A: " << a.getX() << ", " << a.getY();
+//	a.showCount();    //输出对象个数
+//	Point b(a);    //定义对象b，其构造函数回使count增1
+//	cout << "Point B: " << b.getX() << ", " << b.getY();
+//	b.showCount();    //输出对象个数
+//	return 0;
+//}
 
